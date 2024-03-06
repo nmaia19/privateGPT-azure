@@ -9,6 +9,6 @@ local:
   embedding_hf_model_name: BAAI/bge-small-en-v1.5
 
 openai:
-  api_base: http://localhost:8000/v1
-  api_key: EMPTY
-  model: facebook/opt-125m
+  api_base: https://dt-openai-lab-001.openai.azure.com/
+  api_key: d27aa5ed7ce1406e8f7befd9f5491624
+  model: gpt-35-turbo

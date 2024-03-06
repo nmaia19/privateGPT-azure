@@ -66,17 +66,28 @@ class LLMComponent:
                     api_key=openai_settings.api_key,
                     model=openai_settings.model,
                 )
-            case "openailike":
-                from llama_index.llms import OpenAILike
+            # case "openailike":
+            #     from llama_index.llms import OpenAILike
 
-                openai_settings = settings.openai
-                self.llm = OpenAILike(
-                    api_base=openai_settings.api_base,
-                    api_key=openai_settings.api_key,
-                    model=openai_settings.model,
-                    is_chat_model=True,
-                    max_tokens=None,
-                    api_version="",
+            #     openai_settings = settings.openai
+            #     self.llm = OpenAILike(
+            #         api_base=openai_settings.api_base,
+            #         api_key=openai_settings.api_key,
+            #         model=openai_settings.model,
+            #         is_chat_model=True,
+            #         max_tokens=None,
+            #         api_version="",
+            #     )
+            case "openailike":
+                from llama_index.llms.azure_openai import AzureOpenAI
+
+                self.llm = AzureOpenAI(
+                    engine="gpt-35-turbo",
+                    model="gpt-35-turbo",
+                    temperature=0.0,
+                    azure_endpoint="https://dt-openai-lab-001.openai.azure.com/",
+                    api_key="d27aa5ed7ce1406e8f7befd9f5491624",
+                    api_version="2023-07-01-preview",
                 )
             case "mock":
                 self.llm = MockLLM()
