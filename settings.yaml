@@ -36,7 +36,7 @@ ui:
 
 
 llm:
-  mode: local
+  mode: openailike
   # Should be matching the selected model
   max_new_tokens: 512
   context_window: 3900
